@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.conveystepper.ConveyStepper" pluginWidget="true" needsEntityContext="false" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Convey Stepper</name>
+    <description>Configurable horizontal stepper with header, clickable steps, and theme colors</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="activeStep" type="expression" required="true" defaultValue="1">
+                <caption>Active step</caption>
+                <description>1-based index of the current step (steps before this are completed)</description>
+                <returnType type="Integer" />
+            </property>
+            <property key="steps" type="object" isList="true">
+                <caption>Steps</caption>
+                <description>Configure each step. Enabled steps can be clicked to run On click.</description>
+                <properties>
+                    <propertyGroup caption="General">
+                        <property key="caption" type="textTemplate" required="true">
+                            <caption>Caption</caption>
+                            <description>Text shown next to the step badge when this step is active</description>
+                        </property>
+                        <property key="enabled" type="expression" required="true" defaultValue="true">
+                            <caption>Enabled</caption>
+                            <description>When false, the step is not clickable</description>
+                            <returnType type="Boolean" />
+                        </property>
+                        <property key="onClick" type="action" required="false">
+                            <caption>On click</caption>
+                            <description>Action executed when an enabled step is clicked</description>
+                        </property>
+                    </propertyGroup>
+                </properties>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Header">
+            <property key="showHeader" type="boolean" defaultValue="true">
+                <caption>Show header</caption>
+                <description>Show the title bar above the stepper</description>
+            </property>
+            <property key="headerTitle" type="textTemplate" required="false">
+                <caption>Title</caption>
+                <description>Header title text (e.g. Inbound Call Process)</description>
+            </property>
+            <property key="headerIcon" type="icon" required="false">
+                <caption>Icon</caption>
+                <description>Optional header icon. A phone icon is used when empty.</description>
+            </property>
+            <property key="showPopOutButton" type="boolean" defaultValue="true">
+                <caption>Show pop-out button</caption>
+                <description>Show the external/pop-out action in the header</description>
+            </property>
+            <property key="onPopOut" type="action" required="false">
+                <caption>On pop-out</caption>
+                <description>Action when the pop-out button is clicked</description>
+            </property>
+            <property key="showCloseButton" type="boolean" defaultValue="true">
+                <caption>Show close button</caption>
+                <description>Show the close action in the header</description>
+            </property>
+            <property key="onClose" type="action" required="false">
+                <caption>On close</caption>
+                <description>Action when the close button is clicked</description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Colors">
+            <property key="completedColor" type="string" required="false" defaultValue="#26a69a">
+                <caption>Completed color</caption>
+                <description>Color for completed steps and connectors</description>
+            </property>
+            <property key="activeColor" type="string" required="false" defaultValue="#44566c">
+                <caption>Active color</caption>
+                <description>Color for the active step node and Step badge</description>
+            </property>
+            <property key="pendingFillColor" type="string" required="false" defaultValue="#eef1f4">
+                <caption>Pending fill color</caption>
+                <description>Fill color for pending step nodes</description>
+            </property>
+            <property key="pendingBorderColor" type="string" required="false" defaultValue="#c5ccd4">
+                <caption>Pending border color</caption>
+                <description>Border color for pending step nodes</description>
+            </property>
+            <property key="connectorColor" type="string" required="false" defaultValue="#d5dae0">
+                <caption>Connector color</caption>
+                <description>Color for incomplete connectors</description>
+            </property>
+            <property key="textColor" type="string" required="false" defaultValue="#1f2a37">
+                <caption>Text color</caption>
+                <description>Color for captions and header title</description>
+            </property>
+            <property key="headerBackgroundColor" type="string" required="false" defaultValue="#f5f7fa">
+                <caption>Header background</caption>
+                <description>Background color of the header bar</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
